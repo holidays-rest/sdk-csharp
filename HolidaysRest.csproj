@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+
+    <!-- NuGet package metadata -->
+    <PackageId>HolidaysRest</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>msdundar</Authors>
+    <Description>Official .NET SDK for the holidays.rest API</Description>
+    <PackageTags>holidays;public-holidays;calendar;api;sdk</PackageTags>
+    <PackageProjectUrl>https://holidays.rest</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/msdundar/holidays.rest</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
+</Project>
