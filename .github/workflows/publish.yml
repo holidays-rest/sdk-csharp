@@ -12,6 +12,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      id-token: write
 
     steps:
       - uses: actions/checkout@v4
@@ -44,13 +45,13 @@ jobs:
         uses: NuGet/login@v1
         id: login
         with:
-          user: holidays-rest
+          user: msdundar
 
       - name: Push to NuGet.org
         run: >
           dotnet nuget push ./nupkg/*.nupkg
-          --source https://api.nuget.org/v3/index.json
           --api-key ${{steps.login.outputs.NUGET_API_KEY}}
+          --source https://api.nuget.org/v3/index.json
           --skip-duplicate
 
       - name: Push to GitHub Packages
