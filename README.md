@@ -27,7 +27,7 @@ var holidays = await client.GetHolidaysAsync(new HolidaysParams
 });
 
 foreach (var h in holidays)
-    Console.WriteLine($"{h.Date} — {h.Name}");
+    Console.WriteLine($"{h.Date} — {h.Name["en"]}");
 ```
 
 Get an API key at [holidays.rest/dashboard](https://www.holidays.rest/dashboard).
@@ -128,8 +128,21 @@ var languages = await client.GetLanguagesAsync();
 All responses deserialize into immutable `record` types.
 
 ```csharp
-record Holiday(string Name, string Date, string Type, string Country,
-               string? Region, string? Religion, string? Language);
+record HolidayDay(string Actual, string Observed);
+
+record Holiday(
+    IReadOnlyDictionary<string, string> Name,  // keyed by language code, e.g. "en"
+    string Date,
+    string CountryCode,
+    string CountryName,
+    bool IsNational,
+    bool IsReligious,
+    bool IsLocal,
+    bool IsEstimate,
+    HolidayDay Day,
+    string? Religion,
+    IReadOnlyList<string> Regions
+);
 
 record Country(string Name, string Alpha2, IReadOnlyList<Subdivision>? Subdivisions);
 
