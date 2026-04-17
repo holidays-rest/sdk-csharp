@@ -20,6 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="HolidaysRest.Tests/**" />
     <None Include="../README.md" Pack="true" PackagePath="/" />
   </ItemGroup>
 
