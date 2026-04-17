@@ -39,10 +39,18 @@ jobs:
           -p:Version=${{ steps.version.outputs.VERSION }}
           --output ./nupkg
 
+      # Get a short-lived NuGet API key
+      - name: NuGet login (OIDC → temp API key)
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: msdundar
+
       - name: Push to NuGet.org
         run: >
           dotnet nuget push ./nupkg/*.nupkg
           --source https://api.nuget.org/v3/index.json
+          --api-key ${{steps.login.outputs.NUGET_API_KEY}}
           --skip-duplicate
 
       - name: Push to GitHub Packages
