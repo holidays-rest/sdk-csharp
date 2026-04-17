@@ -1,5 +1,7 @@
 # holidays.rest .NET SDK
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ff892db778af41a892754af0994fbe92)](https://app.codacy.com/gh/holidays-rest/sdk-csharp/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+
 Official .NET SDK for the [holidays.rest](https://holidays.rest) API.
 
 ## Requirements
